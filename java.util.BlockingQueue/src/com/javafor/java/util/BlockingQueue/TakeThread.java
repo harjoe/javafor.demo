@@ -22,6 +22,7 @@ public class TakeThread extends Thread {
 	public void run() {
 		while (true) {
 			try {
+				Thread.sleep(100);
 				System.out.println(Thread.currentThread().getName() + "--- take: " + this.queue.take());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
