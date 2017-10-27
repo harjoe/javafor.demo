@@ -16,7 +16,7 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		System.out.println("www.itwhile.com start.....");
+		System.out.println("www.javafor.com start.....");
 		
 		//TODO
 		
@@ -29,6 +29,6 @@ public class Tester {
 		for(String name : ss)
 			System.out.println(name);
 		
-		System.out.println("www.itwhile.com end....");
+		System.out.println("www.javafor.com end....");
 	}
 }
