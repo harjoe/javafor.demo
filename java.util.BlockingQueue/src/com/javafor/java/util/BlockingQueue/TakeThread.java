@@ -12,6 +12,7 @@ public class TakeThread extends Thread {
 	private BlockingQueue<Integer> queue;
 
 	public BlockingQueue<Integer> getQueue() {
+		return queue;
 	}
 
 	public void setQueue(BlockingQueue<Integer> queue) {
