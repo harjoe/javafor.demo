@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/org/springframework/data/spring-data-redis/1.7.1.RELEASE/spring-data-redis-1.7.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/org/springframework/spring-core/4.1.7.RELEASE/spring-core-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar" sourcepath="D:/Program/maven/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/fluent-hc-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/httpclient-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/httpclient-cache-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/httpmime-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/apache-httpcomponents-httpclient.jar"/>
+	<classpathentry kind="lib" path="D:/Program/maven/repository/itwhile-basis/itwhile-basis/1.2.1/http-core-4.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
