@@ -1,12 +1,10 @@
 package queue;
 
-
 public class Testor {
 
 	public static void main(String[] args) {
-		//Queue<String> queue = new ArrayBlockingQueue<String>(10);
-		
-		
-		
+		// Queuequeue = new ArrayBlockingQueue(10);
+
+		System.out.println("test");
 	}
 }
