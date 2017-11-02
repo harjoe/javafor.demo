@@ -12,7 +12,7 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * 
+ * 消息消费者
  *
  * @author Harjoe; if you have any questions, please contact me with my blog or
  *         email, thanks.<br>
@@ -42,13 +42,10 @@ public class Consumer {
 			if (message != null)
 				System.out.println("receive: " + message.getText());
 			else {
-
 				System.out.println("blank");
 				break;
 			}
-
 		}
-
 		System.out.println("receive finished.");
 	}
 

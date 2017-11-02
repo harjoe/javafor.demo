@@ -12,7 +12,7 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 /**
- * 
+ * 消息生产者
  *
  * @author Harjoe; if you have any questions, please contact me with my blog or
  *         email, thanks.<br>
