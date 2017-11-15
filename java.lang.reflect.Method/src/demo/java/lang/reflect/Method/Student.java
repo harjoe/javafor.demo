@@ -1,4 +1,4 @@
-package com.javafor.ehcache.demo;
+package demo.java.lang.reflect.Method;
 
 /**
  * 
@@ -9,19 +9,11 @@ package com.javafor.ehcache.demo;
  *         github: <a href="https://github.com/harjoe">www.github.com/harjoe</a><br>
  *         email: <a href="harjoe@hotmail.com">harjoe@hotmail.com</a><br>
  **/
-public class Person {
+public class Student {
 
-	private int id;
 	private String name;
-	private int age;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	private Integer age;
 
 	public String getName() {
 		return name;
@@ -31,18 +23,28 @@ public class Person {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	public Person(int id, String name, int age) {
-		this.id = id;
-		this.name = name;
-		this.age = age;
+	public Integer homework(){
+		return 1;
+	}
+	
+	public Integer homework(Integer value) {
+		return 2;
 	}
 
+	public Integer homework(Integer value, Integer value2) {
+		return 3;
+	}
+	
+	public Integer homework(Object...objects) {
+		return 4;
+	}
+	
 }

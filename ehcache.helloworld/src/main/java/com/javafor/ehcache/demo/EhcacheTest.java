@@ -2,10 +2,12 @@ package com.javafor.ehcache.demo;
 
 import java.io.InputStream;
 import java.util.List;
+
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
+import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.search.Attribute;
 import net.sf.ehcache.search.Query;
 import net.sf.ehcache.search.Result;
@@ -25,67 +27,70 @@ import org.junit.Test;
  **/
 public class EhcacheTest {
 
-	/*
-	 * @Test public void test() {
-	 * 
-	 * Car car = new Car();
-	 * 
-	 * car.setName("bridge");
-	 * 
-	 * System.out.println(car.getName());
-	 * 
-	 * fail("Not yet implemented"); }
+	/**
+	 * add element into cache
 	 */
+	@Test
+	public void testAddElementToCache() {
+		// load cache from xml; "data-cache" is defined in xml.
+		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
+		CacheManager cm = CacheManager.create(in);
+		Cache cache = cm.getCache("data-cache");
+		// create two persons.
+		Person p1 = new Person(1, "Jack", 21);
+		Person p2 = new Person(2, "Mike", 73);
+		// put
+		cache.put(new Element(p1.getId(), p1, 1));
+		cache.put(new Element(p2.getId(), p2, 1));
+		// cache.put(new Element(p2, p2, 1));
+		// get.
+		Element e = cache.get(p2.getId());
+		Person person = (Person) e.getObjectValue();
+		System.out.println(person.getName());
+		cache.flush();
+	}
 
+	/**
+	 * read from cache
+	 */
+	public void readElementFromCache() {
+		// load cache from xml; "data-cache" is defined in xml.
+		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
+		CacheManager cm = CacheManager.create(in);
+		Cache cache = cm.getCache("data-cache");
+		//
+		Element e = cache.get(2);
+		if (e != null) {
+			Person person = (Person) e.getObjectValue();
+			System.out.println(person.getName());
+		}
+		Assert.assertNotNull(e);
+	}
+
+	/**
+	 * load cache config information.
+	 */
 	public void testCacheManager() {
 		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
 		CacheManager cm = CacheManager.create(in);
 
 		String[] names = cm.getCacheNames();
-
-		Assert.assertEquals(1, names.length);
-		Assert.assertEquals(names[0], "data-cache");
-
-		Cache cache = cm.getCache("data-cache"); 
+		System.out.println(names.length);
+		System.out.println(names[0]);
+		Cache cache = cm.getCache("data-cache");
 		Assert.assertNotNull(cache);
 
-		// CacheConfiguration configuration = cache.getCacheConfiguration();
-		// configuration.setTimeToIdleSeconds(3600);
-
+		CacheConfiguration configuration = cache.getCacheConfiguration();
+		configuration.setTimeToIdleSeconds(4600);
 		System.out.println(cm.getActiveConfigurationText());
 
 		// cm.clearAll();
-
 		// cm.removeCache("data-cache");
-
 	}
 
-	public void testCache() {
-		// cache.setName("data-cache-changed");
-	}
-
-	
-	@Test
-	public void testAddElementToCache() {
-		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
-		CacheManager cm = CacheManager.create(in);
-
-		Cache cache = cm.getCache("data-cache");
-
-		Person p1 = new Person(1, "Jack", 21);
-		Person p2 = new Person(2, "Mike", 73);
-
-		cache.putIfAbsent(new Element(p1, p1, 1));
-		cache.put(new Element(p2, p2, 1));
-		cache.putIfAbsent(new Element(p2, p1, 1));
-
-		Element e = cache.get(p2);
-		Assert.assertEquals(p2, e.getObjectValue());
-
-		cache.flush();
-
-	}
-
+	/**
+	 * remove element from chache
+	 */
 	public void testRemoveElementFromCache() {
 		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
 		CacheManager cm = CacheManager.create(in);
@@ -110,7 +115,6 @@ public class EhcacheTest {
 
 		Assert.assertEquals(0, cache.getSize());
 	}
-
 
 	public void testUpdateElementInCache() {
 		InputStream in = EhcacheTest.class.getClassLoader().getResourceAsStream("ehcache.xml");
@@ -144,7 +148,6 @@ public class EhcacheTest {
 		e = new Element(2000, 20000, 1);
 		cache.put(e);
 
-
 		Assert.assertEquals(2, cache.getSize());
 
 		e = cache.get(1000);
@@ -154,7 +157,7 @@ public class EhcacheTest {
 
 		// Set<Attribute> set = cache.getSearchAttributes();
 
-		Attribute<Integer> keyAttribute = cache.getSearchAttribute("key"); 
+		Attribute<Integer> keyAttribute = cache.getSearchAttribute("key");
 
 		q = q.addCriteria(keyAttribute.eq(2000));
 

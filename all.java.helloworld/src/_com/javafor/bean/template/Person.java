@@ -1,4 +1,4 @@
-package com.javafor.ehcache.demo;
+package _com.javafor.bean.template;
 
 /**
  * 
